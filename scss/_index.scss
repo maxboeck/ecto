@@ -1,0 +1,160 @@
+// POST INDEX STYLES
+// =============================
+
+
+.post-index {
+
+	@extend .clearfix;
+	width:100%;
+	position:relative;
+	
+	@include mq($medium){
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		overflow: hidden;
+		position: absolute;
+		height:100%;
+		min-height: 500px;
+		width: auto;
+
+		&:hover .post {
+			border-right-color:darken($lightgrey, 10%);
+			.articlelink {opacity: .8;}
+		}
+	}
+	
+	.badges {
+		position:absolute;
+		right:10%;
+		@include rem(top, 1rem);
+
+		.badge {
+			width:40px;
+			height:40px;
+			text-align: center;
+			line-height: 40px;
+			color:$lightgrey;
+			border:1px solid $lightgrey;
+			@include radius(20px);
+			@include transition(all .3s linear);
+
+			&:hover, &:focus {
+				border-color:lighten($darkgrey, 20%);
+				color:lighten($darkgrey, 20%);
+			}
+		}
+	}
+
+	.post-title {
+		margin-top:0;
+		font-size:1.8em;
+	}
+
+	.read-more {
+		font-family: $sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+}
+
+.post-index .post {
+
+	// ============== STACKED
+
+	display:block;
+	position: relative;
+	z-index:1;
+	cursor: pointer;
+	border-bottom:1px solid $lightgrey;
+	background-color:$darkgrey;
+
+	.articlelink {
+		display:block;
+		height:100%;
+		color:$textcolor;
+		background-color:#FFF;
+		@include transition(border .2s linear, opacity .2s linear);
+
+		&:hover, &:focus {
+			opacity:1 !important;
+		}
+
+	}
+	.wrapper {
+		@include rem(padding, 1.5rem 0);
+	}
+
+	time {
+		display:block;
+		font-style: italic;
+		font-weight:normal;
+		color:lighten($textcolor, 25%);
+		margin-bottom:.5em; 
+	}
+
+	#loader {
+		top:40px;
+		right:15px;
+		left:auto;
+	}
+
+	// ============= HORIZONTAL
+
+	@include mq($medium){
+		width:330px;
+		height:100%;
+		border-bottom:0;
+		border-right:1px solid $lightgrey;
+		@include transition(width .3s ease);
+
+		&.expand {width:360px;}
+		&.active {
+			z-index:3;
+			border-right-color:transparent;
+			background-color:#FFF;
+		}
+
+		.wrapper {
+			width:330px;
+			height:100%;
+			@include rem(padding-top, 4rem);
+			padding-left:12%;
+			padding-right:12%;
+		}
+
+		.articlelink {
+			border-top:7px solid $lightgrey;
+			&:hover, &:focus {
+				border-top-color:$link-color;
+				.read-more {bottom:0}
+			}
+		}
+
+		.read-more {
+			@include transition(bottom .3s ease);
+			position: absolute;
+			bottom:-4em;
+			padding:1em 0;
+		}
+	}
+	@include mq($large){
+		width:350px;
+		&.expand {width:380px;}
+		.wrapper {width:350px;}
+	}
+
+}
+
+#expander {
+	min-height:100%;
+	width:0;
+	background-color:#FFF;
+	border-top:7px solid $link-color;
+	position:absolute;
+	z-index:2;
+	top:0;
+	left:0;
+}

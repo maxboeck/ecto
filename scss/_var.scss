@@ -1,0 +1,26 @@
+/* ==================================================== VARIABLES */
+
+/* TYPOGRAPHY */
+
+$basefontsize: 		16;
+$sans-serif:        "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:             "Merriweather", "Georgia", Cambria, Times New Roman, Times, serif;
+$monospace: 		"Menlo", "Monaco", "Andale Mono", "Courier New",Courier,monospace;
+
+/* LAYOUT */
+
+$medium: 			768px;
+$large: 			1024px;
+$max-wrapper-width: 720px;
+
+/* COLORS */
+
+$black:             #000;
+$white:             #fff;
+$lightgrey: 		#d6d6d6;
+$darkgrey: 			#282c2e;
+$textcolor: 		#373a41;
+$highlight: 		#db2e4f;
+
+$link-color:        $highlight;
+$link-hover:        darken($link-color, 9%);

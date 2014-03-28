@@ -1,0 +1,91 @@
+// SINGLE POST STYLES
+// =============================
+
+.single {
+	.post-template & {
+		border-top:7px solid $link-color;
+	}
+	.post-header {
+		text-align: center;
+		position: relative;
+
+		&.has-cover {
+			.post-title {
+				text-shadow:0 0 20px rgba(255,255,255,.4);
+				-webkit-transform:translateZ(0);
+			}
+			.arrow:hover, .arrow:focus {background-color:rgba(#FFF, .9);}
+		}
+
+		.wrapper {
+			@include mq($medium){
+				max-width:none;
+				width:100%;
+				top:150px;
+
+				.touch & {
+					top:143px;
+					position:absolute;
+					padding:0 70px;
+				}
+				.no-touch & {
+					position:fixed;
+					margin:0 0 0 -70px;
+					padding:0 70px 0 140px;
+				}
+			}
+			@include mq($large){
+				.touch & {padding:0 100px;}
+				.no-touch & {padding:0 100px 0 170px;}
+			}
+		}
+		.arrow {
+			display:none;
+			color:$textcolor;
+
+			@include mq($medium){
+				@include rem(font-size, 2rem);
+				@include radius(25px);
+				@include transition(background-color .2s linear);
+				display:block;
+				position: absolute;
+				width:50px;
+				height:50px;
+				line-height:50px;
+				vertical-align: middle;
+				border:1px solid $lightgrey;
+				background-color:rgba(255,255,255,.5);
+				left:50%;
+				margin-left:-35px;
+				bottom:50px;
+
+				&:hover, &:focus {
+					background-color:rgba($lightgrey, .7);
+				}
+			}
+		}
+		#cover {
+			height:100%;
+			-webkit-filter:grayscale(0%);
+			background-size: cover;
+			background-position:50% 0;
+		}
+	}
+	.post-title {
+		@include mq($medium){
+			@include rem(font-size, 5rem);
+			@include rem(margin-bottom, 1rem);
+			margin-top:0;
+			line-height: 1.4;
+		}	
+	}
+	.post-meta {
+		font-style: italic;
+		font-size:1.2em;
+		color:lighten($textcolor, 25%);
+	}
+	.post-content {
+		@include rem(padding, 2rem 0);
+		> *:first-child {margin-top:0}
+	}
+}

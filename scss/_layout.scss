@@ -1,0 +1,83 @@
+// BASIC LAYOUT
+// =============================
+
+html {
+	height:100%;
+	font-size:($basefontsize*.875)+px;
+	@include mq($medium){
+		font-size:$basefontsize+px;
+	}
+}
+body {
+	height: 100%;
+	background-color:#FFF;
+
+	&.open-menu {
+		overflow-x:hidden;
+	}
+}
+
+#viewport {
+	width:100%;
+	margin:0;
+	position: relative;
+	left:0;
+
+	@include mq($medium){
+		height:100%;
+		min-height: 100%;
+		padding-left:70px;
+
+		@include transition(left .4s ease);
+	}
+}
+
+.wrapper {
+	@extend .clearfix;
+	margin:0 auto;
+	width:90%;
+	max-width: $max-wrapper-width;
+	position:relative;
+}
+
+#header {
+	background-color:$darkgrey;
+	color:#FFF;
+	min-height:50px;
+
+	@include mq($medium){
+		position:fixed;
+		height:100%;
+		top:0;
+		left:0;
+		z-index:99;
+		min-width:71px;
+
+		.wrapper {
+			height:100%;
+			width:100%;
+		}
+		.header-inner {
+			height:100%;
+			width:71px;
+		}
+	}
+}
+
+#content {
+	position: relative;
+	min-height: 100%;
+}
+
+#footer {
+	font-family: $sans-serif;
+	color:lighten($darkgrey, 20%);
+	font-size:14px;
+	@include mq($medium){
+		display:none;
+		position: fixed;
+		bottom:0;
+		left:0;
+		z-index:100;
+	}
+}

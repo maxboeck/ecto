@@ -1,0 +1,23 @@
+<header id="header" class="clearfix" role="banner">
+    <div class="wrapper">
+
+        {{! SITE LOGO }}
+        {{#if @blog.logo}}
+            <a id="logo" href="{{@blog.url}}" rel="nofollow"><img src="{{@blog.logo}}" alt="Logo"></a>
+        {{/if}}
+
+        <div class="header-inner">
+            {{! SITE TITLE }}
+            <div class="page-title">
+                <a href="{{@blog.url}}" rel="nofollow">{{@blog.title}}</a>
+            </div>
+
+            {{! MENU PANEL BUTTON }}
+            <a href="{{@blog.url}}" id="menu-toggle" class="menu-button"><i class="fa fa-bars menu-icon"></i></a>
+        </div>
+
+        {{! NAVIGATION }}
+        {{> navigation}}
+
+    </div>
+</header>

@@ -1,0 +1,52 @@
+// BASE CSS, MOBILE FIRST
+// =============================
+
+@import "layout";
+@import "typo";
+@import "nav";
+@import "index";
+@import "single";
+@import "form";
+
+
+// =================== OTHER STYLES ======================== //
+
+.cssanimations {
+	@include mq($medium){
+		
+		.post-index {
+			.animate-in {
+				opacity:0;
+				@include animation(fadeInRight, .3s, 1s);
+			}
+			.post:first-child  {@include animation-delay(0s)}
+			.post:nth-child(2) {@include animation-delay(.1s)}
+			.post:nth-child(3) {@include animation-delay(.3s)}
+			.post:nth-child(4) {@include animation-delay(.5s)}
+			.post:nth-child(5) {@include animation-delay(.7s)}
+			.post:nth-child(6) {@include animation-delay(.9s)}
+		}
+
+
+		.single {
+			.post-title {@include animation(scaleIn, .5s, .1s);}
+			.post-meta {@include animation(scaleIn, .5s, .3s);}
+			.post-header .arrow {@include animation(bounce, .5s, .5s);}
+		}
+	}
+}
+
+#loader {
+	display:none;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	position: absolute;
+	top:20%;
+	left:50%;
+	margin-top:-25px;
+	margin-left:-25px;
+	z-index:999;
+	@include rem(font-size, 2rem);
+}

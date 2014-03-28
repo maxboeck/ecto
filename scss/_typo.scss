@@ -1,0 +1,306 @@
+// TYPOGRAPHY STYLES
+// =============================
+
+body {
+	@include rem(font-size, 1rem);
+	font-family: $serif;
+	color:$textcolor;
+	line-height: 1.8;
+}
+
+.page-title {
+	text-transform: uppercase;
+	font-family:$sans-serif;
+	font-weight:300;
+	letter-spacing: 5px;
+	line-height: 1;
+	@include rem(font-size, 1.5rem);
+	@include rem(padding, 1rem);
+
+	a {
+		display:block;
+		color:#FFF;
+		&:hover, &:focus {color:#FFF}
+	}
+
+	@include mq($medium){
+		
+		position: absolute;
+		bottom:0;
+		left:3px;
+		width:400px;
+		@include rem(font-size, 1rem);
+		@include rem(padding, 1.5rem 0 0 0);
+
+		-webkit-transform-origin: 0 0;
+		-webkit-transform:rotate(-90deg);
+	}
+}
+
+a {
+	color:$link-color;
+	text-decoration: none;
+	@include transition(color .2s linear);
+
+	&:hover, &:focus {
+		color: $link-hover;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:$serif;
+	line-height:1.4;
+}
+
+h1 {
+    font-size: 2.57142em;
+    margin-bottom: 0.83em;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 1.33em;
+}
+
+h4 {
+    font-size: 1.1428em;
+    margin-bottom: 1.67em;
+}
+
+h5 {
+    font-size: 1em;
+    margin-bottom: 2em;
+}
+
+blockquote {
+	@include rem(font-size, 21px);
+	position: relative;
+	margin: 1.5em 0 1.5em 3%;
+	padding-left:2.5em;
+	font-style: italic;
+	font-weight:normal;
+
+	&::before {
+		@include rem(font-size, 5rem);
+		@include rem(line-height, 1rem);
+		@include rem(top, 2rem);
+
+		content: "\201D";
+		font-family: "Georgia", Cambria, Times New Roman, Times, serif;
+		font-style: normal;
+		speak: none;
+		color:$lightgrey;
+		display: inline-block;
+		width: 1em;
+		position: absolute;
+		left:0;
+	}
+}
+
+
+hr {
+    border: none;
+    border-bottom: 1px solid $lightgrey;
+    @include rem(margin, 3rem 0);
+}
+
+
+/* ===============================  POST EXCLUSIVE TYPOGRAPHY */
+
+
+
+.post {
+
+	@include rem(font-size, 1.125rem);
+	@include mq($large){
+		.wrapper .wide-img {
+			margin:1.5em -4em;
+			text-align: center;
+		}
+	}
+
+	// =================== LISTS ===================== //
+
+	ul, ol {
+		list-style-position: inside;
+		line-height: 1.8;
+		margin: 1.5em 0 1.5em 3%;
+		padding: 0;
+
+		li {
+			margin: 0 0 .5em;
+			&:last-of-type {
+				margin-bottom:0;
+			}
+		}
+		ul, ol {
+			margin: .5em 0 0 1em;
+		}
+	}
+
+	// =================== MEDIA ===================== //
+
+	img {
+		max-width: 100%;
+	    width: auto !important;
+	    border: 1px solid $lightgrey;
+	    padding:3px;
+	    vertical-align: bottom;
+	}
+
+	// =================== TABLES ===================== //
+
+	table {
+		width:100%;
+		margin-bottom:1em;
+		border-collapse: separate;
+		*border-collapse: collapse;
+		border-left: 0;
+
+		&.striped {
+			tbody > tr:nth-child(odd) > td,
+			tbody > tr:nth-child(odd) > th {
+			  background-color: rgba($lightgrey, 0.6);
+			}
+		}
+	}
+	table th,
+	table td {
+	  padding: .5714em;
+	  text-align: left;
+	  vertical-align: top;
+	  border-top: 1px solid $lightgrey;
+	}
+	table th,
+	table tbody:first-child tr:first-child td {
+		border-top:0;
+	}
+
+}
+
+
+/* ===============================  CODE PRETTIFY STYLES */
+
+
+code, pre {
+	@include radius(3px);
+	font-family: $monospace;
+	border: 1px solid #DDDBCC;
+	background-color: #F7F7F9;
+  	border: 1px solid #E1E1E8; 
+}
+code {
+	padding:3px 5px;
+}
+pre {
+	padding:.75em 1em;
+	code {
+		padding:0;
+		border:0;
+	}
+}
+
+pre.prettyprint.linenums {
+  box-shadow: 40px 0 0 #FBFBFC inset, 41px 0 0 #ECECF0 inset; 
+  padding: .75em 10px;
+
+  code {background-color: transparent}
+}
+
+.post ol.linenums {
+  color: #1E347B;
+  margin: 0 0 0 40px; 
+  list-style-position: outside;
+}
+
+.post ol.linenums li {
+  color: #BEBEC5;
+  line-height: 1.5;
+  padding-left: 12px;
+  margin:0;
+  text-shadow: 0 1px 0 #FFFFFF; 
+}
+
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 {
+  list-style-type: normal; 
+}
+
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+  background: #eee; 
+}
+
+.pln {
+color: #333333;
+}
+.str {
+color: #dd1144;
+}
+
+.kwd {
+color: #333333;
+}
+
+.com {
+color: #999988;
+}
+
+.typ {
+color: #445588;
+}
+
+.lit {
+color: #445588;
+}
+
+.pun {
+color: #333333;
+}
+
+.opn {
+color: #333333;
+}
+
+.clo {
+color: #333333;
+}
+
+.tag {
+color: navy;
+}
+
+.atn {
+color: teal;
+}
+
+.atv {
+color: #dd1144;
+}
+
+.dec {
+color: #333333;
+}
+
+.var {
+color: teal;
+}
+
+.fun {
+color: #990000;
+}
+

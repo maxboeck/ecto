@@ -1,0 +1,56 @@
+{{!< default}}
+
+{{#post}}
+
+    <article class="hentry clearfix single {{post_class}}" role="article">
+
+	    <header class="post-header">
+	        <div id="cover"></div>
+	        <div class="wrapper" id="titlesection">
+	            <h1 class="post-title">{{title}}</h1>
+
+	            <p class="post-meta">
+	                <time class="updated"
+	                      datetime="{{date published_at format='YYYY-MM-DD'}}"
+	                      pubdate="">
+	                    {{date published_at format='MMMM Do, YYYY'}}
+	                </time>
+
+	                by
+	                <span class="author">
+	                    {{author}}
+	                </span>
+
+	                {{#if tags}}
+	                    {{#each tags}}
+	                        <span class="tag-label">{{this.name}}</span>
+	                    {{/each}}
+	                {{/if}}
+	            </p>
+	        </div>
+	        <a href="#" class="arrow"><i class="fa fa-chevron-down"></i></a>
+	    </header> 
+
+	    <div class="post-content clearfix wrapper">
+	        {{content}}
+	    </div> 
+
+	    <footer class="post-footer">
+	        <div class="wrapper">
+	        {{#if tags}}
+	            <p class="tags">
+	                {{#each tags}}
+	                    {{! Use the span below to display tags as plain text until tag links are ready }}
+	                    <span class="tag-label">{{this.name}}</span>
+	                {{/each}}
+	            </p>
+	        {{/if}}
+	        </div>
+	    </footer>
+	</article>
+
+    {{!disqus comments partial }}
+    {{!> comments}}
+
+{{/post}}
+
