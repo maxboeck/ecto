@@ -28,7 +28,7 @@ body {
 		min-height: 100%;
 		padding-left:70px;
 
-		@include transition(left .4s ease);
+		@include transition(left .4s cubic-bezier(0.190, 1.000, 0.220, 1.000));
 	}
 }
 
@@ -51,7 +51,8 @@ body {
 		top:0;
 		left:0;
 		z-index:99;
-		min-width:71px;
+		width:71px;
+		@include transition(width .3s cubic-bezier(0.190, 1.000, 0.220, 1.000));
 
 		.wrapper {
 			height:100%;
@@ -60,6 +61,9 @@ body {
 		.header-inner {
 			height:100%;
 			width:71px;
+			position: absolute;
+			right:0;
+			top:0;
 		}
 	}
 }

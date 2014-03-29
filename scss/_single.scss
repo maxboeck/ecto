@@ -22,6 +22,7 @@
 				max-width:none;
 				width:100%;
 				top:150px;
+				@include transition(left .3s cubic-bezier(0.190, 1.000, 0.220, 1.000));
 
 				.touch & {
 					top:143px;
@@ -30,13 +31,17 @@
 				}
 				.no-touch & {
 					position:fixed;
+					left:70px;
 					margin:0 0 0 -70px;
 					padding:0 70px 0 140px;
+				}
+				.no-touch .open-menu & {
+					left:270px;
 				}
 			}
 			@include mq($large){
 				.touch & {padding:0 100px;}
-				.no-touch & {padding:0 100px 0 170px;}
+				.no-touch & {padding:0 130px 0 200px;}
 			}
 		}
 		.arrow {
