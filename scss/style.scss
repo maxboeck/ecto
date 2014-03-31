@@ -1,23 +1,42 @@
-// ==========================
-// ==== MAIN CSS FILE =======
-// ==========================
+// =======================================
+// =========== MAIN SCSS FILE ============
+// =======================================
 
-// reset styles
-@import "normalize";
+//--------------------
+// MIXINS & VARIABLES
+//--------------------
 
-// import variables
 @import "var";
-
-// import mixins
 @import "mixins";
 
-// base styles (mobile first)
-@import "base";
+//--------------------
+// MODULES
+//--------------------
 
-// Retina Styles
+@import "modules/normalize";
+
+@import "modules/utils";
+@import "modules/layout";
+@import "modules/nav";
+@import "modules/typo";
+@import "modules/form";
+@import "modules/animations";
+
+//--------------------
+// PARTIALS
+//--------------------
+
+@import "specific/single";
+@import "specific/index";
+
+//--------------------
+// RETINA STYLES
+//--------------------
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
        only screen and (min--moz-device-pixel-ratio: 1.5),
        only screen and (min-device-pixel-ratio: 1.5) {
 
-	@import "2x";
+	@import "modules/2x";
+
 }
